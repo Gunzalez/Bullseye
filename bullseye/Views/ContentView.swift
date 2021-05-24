@@ -11,6 +11,8 @@ struct ContentView: View {
     @State private var alertIsVisible: Bool = false
     @State private var silderValue: Double = 20.0
     
+    @State private var game: Game = Game();
+    
     var body: some View {
         VStack {
             VStack{
@@ -21,7 +23,7 @@ struct ContentView: View {
                     .font(.footnote)
                     .lineSpacing(4.0)
                     .multilineTextAlignment(.center)
-                Text("89")
+                Text(String(game.target))
                     .kerning(-1.0)
                     .fontWeight(.black)
                     .font(.largeTitle)
