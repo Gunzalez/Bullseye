@@ -40,7 +40,7 @@ struct ContentView: View {
                     
                     let roundedValue: Int = Int(self.silderValue.rounded())
                     
-                    return Alert(title: Text("Hello there"), message: Text("The silder's value is \(roundedValue).\n You scored \(game.point(sliderValue: roundedValue))"), dismissButton: .default(Text("Awesome!")))
+                    return Alert(title: Text("Hello there"), message: Text("The silder's value is \(roundedValue).\n You scored \(game.points(sliderValue: roundedValue))"), dismissButton: .default(Text("Awesome!")))
                 })
             }
         }
