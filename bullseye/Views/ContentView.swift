@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var alertIsVisible: Bool = false
-    @State private var silderValue: Double = 20.0
+    @State private var alertIsVisible = false
+    @State private var silderValue = 50.0
     
     @State private var game: Game = Game();
     
@@ -32,15 +32,30 @@ struct ContentView: View {
                     Slider(value: $silderValue, in: 1...100)
                     Text("100").bold().font(/*@START_MENU_TOKEN@*/.callout/*@END_MENU_TOKEN@*/)
                 }
+                .padding()
                 Button(action: {
-                    self.alertIsVisible = true
+                    alertIsVisible = true
                 }) {
-                    Text("Hit Me!")
-                }.alert(isPresented: $alertIsVisible, content: {
+                    Text("Hit Me")
+                        .bold()
+                        .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                        .font(.title3)
+                        .padding(20)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(21)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 21)
+                                .stroke(Color.white, lineWidth: 5)
+                        )
+                }
+                .alert(isPresented: $alertIsVisible, content: {
                     
-                    let roundedValue: Int = Int(self.silderValue.rounded())
+                    let roundedValue: Int = Int(silderValue.rounded())
                     
-                    return Alert(title: Text("Hello there"), message: Text("The silder's value is \(roundedValue).\n You scored \(game.points(sliderValue: roundedValue))"), dismissButton: .default(Text("Awesome!")))
+                    return Alert(title: Text("Bullseye!"),
+                                 message: Text("Your slider is at \(roundedValue).\n You score \(game.points(sliderValue: roundedValue)) points thisd round."),
+                                 dismissButton: .default(Text("Awesome!")))
                 })
             }
         }
