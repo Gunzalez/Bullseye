@@ -44,7 +44,10 @@ struct ContentView: View {
                             .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                             .font(.title3)
                             .padding(20)
-                            .background(Color("Button"))
+                            .background(ZStack {
+                                Color("Button")
+                                LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
+                            })
                             .foregroundColor(.white)
                             .cornerRadius(21)
                             .overlay(
