@@ -22,8 +22,27 @@ struct InstructionView: View {
     }
 }
 
+struct BigNumberView: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .foregroundColor(Color("TextColor"))
+            .kerning(-1.0)
+            .fontWeight(.black)
+            .font(.largeTitle)
+    }
+}
+
+
+
+
+
 struct TextsViews_Previews: PreviewProvider {
     static var previews: some View {
-        InstructionView(text: "You make me feel like dancing")
+        VStack {
+            InstructionView(text: "You make me feel like dancing")
+            BigNumberView(text: "999")
+        }
     }
 }

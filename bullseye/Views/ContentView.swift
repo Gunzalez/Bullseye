@@ -22,12 +22,8 @@ struct ContentView: View {
                     InstructionView(text: "🎯🎯🎯\nPut the bullseye as close as you can to")
                         .padding(.leading, 30.0)
                         .padding(.trailing, 30.0)
-                    
-                    Text(String(game.target))
-                        .foregroundColor(Color("TextColor"))
-                        .kerning(-1.0)
-                        .fontWeight(.black)
-                        .font(.largeTitle)
+                    BigNumberView(text: String(game.target))
+
                     HStack{
                         Text("1").foregroundColor(Color("TextColor")).bold().font(/*@START_MENU_TOKEN@*/.callout/*@END_MENU_TOKEN@*/)
                         Slider(value: $silderValue, in: 1...100)
