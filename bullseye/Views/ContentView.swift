@@ -20,6 +20,7 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 VStack{
                     Text("🎯🎯🎯\nPut the bullseye as close as you can to")
+                        .foregroundColor(Color("TextColor"))
                         .kerning(2.0)
                         .bold()
                         .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
@@ -27,13 +28,14 @@ struct ContentView: View {
                         .lineSpacing(4.0)
                         .multilineTextAlignment(.center)
                     Text(String(game.target))
+                        .foregroundColor(Color("TextColor"))
                         .kerning(-1.0)
                         .fontWeight(.black)
                         .font(.largeTitle)
                     HStack{
-                        Text("1").bold().font(/*@START_MENU_TOKEN@*/.callout/*@END_MENU_TOKEN@*/)
+                        Text("1").foregroundColor(Color("TextColor")).bold().font(/*@START_MENU_TOKEN@*/.callout/*@END_MENU_TOKEN@*/)
                         Slider(value: $silderValue, in: 1...100)
-                        Text("100").bold().font(/*@START_MENU_TOKEN@*/.callout/*@END_MENU_TOKEN@*/)
+                        Text("100").foregroundColor(Color("TextColor")).bold().font(/*@START_MENU_TOKEN@*/.callout/*@END_MENU_TOKEN@*/)
                     }
                     .padding()
                     Button(action: {
@@ -73,6 +75,11 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
         ContentView()
+            .preferredColorScheme(.dark)
+        ContentView()
             .previewLayout(.fixed(width: 568, height: 320))
+        ContentView()
+            .previewLayout(.fixed(width: 568, height: 320))
+            .preferredColorScheme(.dark)
     }
 }
