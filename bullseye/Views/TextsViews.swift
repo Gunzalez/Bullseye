@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InstructionView: View {
+struct InstructionText: View {
     var text: String
     
     var body: some View {
@@ -22,7 +22,7 @@ struct InstructionView: View {
     }
 }
 
-struct BigNumberView: View {
+struct BigNumberttext: View {
     var text: String
     
     var body: some View {
@@ -41,8 +41,8 @@ struct BigNumberView: View {
 struct TextsViews_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            InstructionView(text: "You make me feel like dancing")
-            BigNumberView(text: "999")
+            InstructionText(text: "You make me feel like dancing")
+            BigNumberttext(text: "999")
         }
     }
 }

@@ -19,10 +19,10 @@ struct ContentView: View {
                 Color("Background")
                     .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 VStack{
-                    InstructionView(text: "🎯🎯🎯\nPut the bullseye as close as you can to")
+                    InstructionText(text: "🎯🎯🎯\nPut the bullseye as close as you can to")
                         .padding(.leading, 30.0)
                         .padding(.trailing, 30.0)
-                    BigNumberView(text: String(game.target))
+                    BigNumberttext(text: String(game.target))
 
                     HStack{
                         Text("1").foregroundColor(Color("TextColor")).bold().font(/*@START_MENU_TOKEN@*/.callout/*@END_MENU_TOKEN@*/)
