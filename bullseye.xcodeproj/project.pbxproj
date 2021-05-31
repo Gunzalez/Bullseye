@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		6F9B77BC265B374E0096F930 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B77BB265B374E0096F930 /* Game.swift */; };
 		6F9B77C4265C52E40096F930 /* BullseyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B77C3265C52E40096F930 /* BullseyeTests.swift */; };
-		6F9B77CC266367080096F930 /* TextsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B77CB266367080096F930 /* TextsViews.swift */; };
+		6F9B77CC266367080096F930 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B77CB266367080096F930 /* TextViews.swift */; };
+		6F9B77D026640CEB0096F930 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B77CF26640CEB0096F930 /* RoundedView.swift */; };
+		6F9B77D22664D5190096F930 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B77D12664D5190096F930 /* BackgroundView.swift */; };
 		6FCC78E5265AB9A000EB0A2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCC78E4265AB9A000EB0A2B /* AppDelegate.swift */; };
 		6FCC78E7265AB9A000EB0A2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCC78E6265AB9A000EB0A2B /* SceneDelegate.swift */; };
 		6FCC78E9265AB9A000EB0A2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCC78E8265AB9A000EB0A2B /* ContentView.swift */; };
@@ -33,7 +35,9 @@
 		6F9B77C1265C52E40096F930 /* BullseyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BullseyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9B77C3265C52E40096F930 /* BullseyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullseyeTests.swift; sourceTree = "<group>"; };
 		6F9B77C5265C52E40096F930 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F9B77CB266367080096F930 /* TextsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextsViews.swift; sourceTree = "<group>"; };
+		6F9B77CB266367080096F930 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		6F9B77CF26640CEB0096F930 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		6F9B77D12664D5190096F930 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		6FCC78E1265AB9A000EB0A2B /* bullseye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bullseye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FCC78E4265AB9A000EB0A2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FCC78E6265AB9A000EB0A2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,8 +69,10 @@
 		6F9B77B8265B36510096F930 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6F9B77D12664D5190096F930 /* BackgroundView.swift */,
 				6FCC78E8265AB9A000EB0A2B /* ContentView.swift */,
-				6F9B77CB266367080096F930 /* TextsViews.swift */,
+				6F9B77CB266367080096F930 /* TextViews.swift */,
+				6F9B77CF26640CEB0096F930 /* RoundedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,8 +252,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FCC78E5265AB9A000EB0A2B /* AppDelegate.swift in Sources */,
-				6F9B77CC266367080096F930 /* TextsViews.swift in Sources */,
+				6F9B77CC266367080096F930 /* TextViews.swift in Sources */,
 				6F9B77BC265B374E0096F930 /* Game.swift in Sources */,
+				6F9B77D22664D5190096F930 /* BackgroundView.swift in Sources */,
+				6F9B77D026640CEB0096F930 /* RoundedView.swift in Sources */,
 				6FCC78E7265AB9A000EB0A2B /* SceneDelegate.swift in Sources */,
 				6FCC78E9265AB9A000EB0A2B /* ContentView.swift in Sources */,
 			);

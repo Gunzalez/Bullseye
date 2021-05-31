@@ -9,59 +9,87 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var alertIsVisible = false
-    @State private var silderValue = 50.0
-    
+    @State private var sliderValue = 50.0
     @State private var game: Game = Game();
     
     var body: some View {
         VStack {
             ZStack {
-                Color("Background")
-                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                BackgroundView(game: $game)
                 VStack{
-                    InstructionText(text: "🎯🎯🎯\nPut the bullseye as close as you can to")
-                        .padding(.leading, 30.0)
-                        .padding(.trailing, 30.0)
-                    BigNumberttext(text: String(game.target))
-
-                    HStack{
-                        Text("1").foregroundColor(Color("TextColor")).bold().font(/*@START_MENU_TOKEN@*/.callout/*@END_MENU_TOKEN@*/)
-                        Slider(value: $silderValue, in: 1...100)
-                        Text("100").foregroundColor(Color("TextColor")).bold().font(/*@START_MENU_TOKEN@*/.callout/*@END_MENU_TOKEN@*/)
-                    }
-                    .padding()
-                    Button(action: {
-                        alertIsVisible = true
-                    }) {
-                        Text("Hit Me")
-                            .bold()
-                            .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                            .font(.title3)
-                            .padding(20)
-                            .background(ZStack {
-                                Color("Button")
-                                LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
-                            })
-                            .foregroundColor(.white)
-                            .cornerRadius(21)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 21)
-                                    .stroke(Color(.white), lineWidth: 4)
-                            )
-                    }
-                    .alert(isPresented: $alertIsVisible, content: {
-                        
-                        let roundedValue: Int = Int(silderValue.rounded())
-                        
-                        return Alert(title: Text("Bullseye!"),
-                                     message: Text("Your slider is at \(roundedValue).\n You score \(game.points(sliderValue: roundedValue)) points thisd round."),
-                                     dismissButton: .default(Text("Awesome!")))
-                    })
+                    InstructionsView(game: $game)
+                    SliderView(sliderValue: $sliderValue)
+                    ButtonView(alertIsVisible: $alertIsVisible, game: $game, sliderValue: $sliderValue)
                 }
             }
         }
     }
 }
+
+struct InstructionsView: View {
+    @Binding var game: Game
+    
+    var body: some View {
+        VStack{
+        InstructionText(text: "🎯🎯🎯\nPut the bullseye as close as you can to")
+            .padding(.leading, 30.0)
+            .padding(.trailing, 30.0)
+        BigNumberText(text: String(game.target))
+        }
+    }
+}
+
+struct SliderView: View {
+    @Binding var sliderValue: Double
+    
+    var body: some View {
+        HStack{
+            SliderText(text: "1")
+            Slider(value: $sliderValue, in: 1...100)
+            SliderText(text: "100")
+        }.padding()
+    }
+}
+
+
+struct ButtonView: View {
+    @Binding var alertIsVisible: Bool
+    @Binding var game: Game
+    @Binding var sliderValue: Double
+    
+    var body: some View {
+        Button(action: {
+            alertIsVisible = true
+        }) {
+            Text("Hit Me")
+                .bold()
+                .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                .font(.title3)
+                .padding(20)
+                .background(ZStack {
+                    Color("Button")
+                    LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
+                })
+                .foregroundColor(.white)
+                .cornerRadius(21)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 21)
+                        .stroke(Color(.white), lineWidth: 4)
+                )
+        }
+        .alert(isPresented: $alertIsVisible, content: {
+            
+            let roundedValue: Int = Int(sliderValue.rounded())
+            
+            return Alert(title: Text("Bullseye!"),
+                         message: Text("Your slider is at \(roundedValue).\n You score \(game.points(sliderValue: roundedValue)) points this round."),
+                         dismissButton: .default(Text("Awesome!")))
+        })
+    }
+}
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
