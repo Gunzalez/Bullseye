@@ -17,8 +17,8 @@ struct BackgroundView: View {
             BottomView(game: $game)
         }
         .padding()
-        .background(Color("Background"))
-        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        .background(RingsView())
+        
     }
 }
 
@@ -27,7 +27,11 @@ struct TopView: View {
     
     var body: some View {
         HStack {
-            RoundedImageViewStroked(systemName: "arrow.counterclockwise")
+            Button(action: {
+                game.startNewGame()
+            }) {
+                RoundedImageViewStroked(systemName: "arrow.counterclockwise")
+            }
             Spacer()
             RoundedImageViewFilled(systemName: "list.dash")
         }
@@ -56,6 +60,26 @@ struct NumberView: View {
             LabelText(text: title)
                 .padding(2)
             RoundedRectTextView(text: text)
+        }
+    }
+}
+
+struct RingsView: View {
+    
+    @Environment(\.colorScheme) var colorScheme
+    
+    var body: some View {
+        ZStack{
+            Color("Background")
+                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            ForEach(1..<6){ ring in
+                let size = CGFloat(ring * 100)
+                let opacityFactor = colorScheme == .dark ? 0.1 : 0.3
+                Circle()
+                    .stroke(lineWidth: 20)
+                    .fill(RadialGradient(gradient: Gradient(colors: [Color("RingColor").opacity(0.8 * opacityFactor), Color("RingColor").opacity(0)]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: 100, endRadius: 300))
+                    .frame(width: size, height: size)
+            }
         }
     }
 }
