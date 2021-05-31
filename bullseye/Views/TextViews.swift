@@ -38,7 +38,11 @@ struct SliderText: View {
     var text: String
     
     var body: some View {
-        Text(text).foregroundColor(Color("TextColor")).bold().font(/*@START_MENU_TOKEN@*/.callout/*@END_MENU_TOKEN@*/)
+        Text(text)
+            .foregroundColor(Color("TextColor"))
+            .bold()
+            .font(/*@START_MENU_TOKEN@*/.callout/*@END_MENU_TOKEN@*/)
+            .frame(width: 35.0)
     }
 }
 
@@ -63,6 +67,6 @@ struct TextsViews_Previews: PreviewProvider {
             BigNumberText(text: "999")
             SliderText(text: "100")
             LabelText(text: "Score")
-        }
+        }.padding(40)
     }
 }

@@ -9,8 +9,8 @@ import Foundation
 
 struct Game {
     var target = Int.random(in: 1...100)
-    var score = 200
-    var round = 2
+    var score = 999
+    var round = 3
     
     func points(sliderValue: Int) -> Int {
         // let diff = sliderValue == self.target ? 0 : abs(sliderValue - self.target);
