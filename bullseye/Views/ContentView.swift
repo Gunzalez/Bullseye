@@ -80,10 +80,14 @@ struct ButtonView: View {
         .alert(isPresented: $alertIsVisible, content: {
             
             let roundedValue: Int = Int(sliderValue.rounded())
+            let points = game.points(sliderValue: roundedValue)
             
             return Alert(title: Text("Bullseye!"),
-                         message: Text("Your slider is at \(roundedValue).\n You score \(game.points(sliderValue: roundedValue)) points this round."),
-                         dismissButton: .default(Text("Awesome!")))
+                         message: Text("Your slider is at \(roundedValue).\n You score \(points) points this round."),
+                         dismissButton: .default(Text("Awesome!")){
+                            game.startNewRound(points: points)
+                            
+                         })
         })
     }
 }
