@@ -66,7 +66,6 @@ struct BodyText: View {
         Text(text)
             .font(.subheadline)
             .fontWeight(.semibold)
-            .padding()
             .lineSpacing(12.0)
             .multilineTextAlignment(.center)
     }
