@@ -35,7 +35,6 @@ struct Shapes: View {
             Button(action: {
 //                isWide = !isWide
                 withAnimation {
-                    
                     isWide.toggle()
                 }
                     
