@@ -83,10 +83,10 @@ struct ButtonView: View {
                     LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
                 })
                 .foregroundColor(.white)
-                .cornerRadius(21)
+                .cornerRadius(Constants.General.roundedCornerRadius)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 21)
-                        .stroke(Color(.white), lineWidth: 4)
+                    RoundedRectangle(cornerRadius: Constants.General.roundedCornerRadius)
+                        .stroke(Color(.white), lineWidth: Constants.General.strokeWidth)
                 )
         }
 //        .alert(isPresented: $alertIsVisible, content: {
