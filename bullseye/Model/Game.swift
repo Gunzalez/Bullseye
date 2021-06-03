@@ -11,6 +11,7 @@ struct Game {
     var target = Int.random(in: 1...100)
     var score = 0
     var round = 1
+    var canRestart = true
     
     func points(sliderValue: Int) -> Int {
         let diff = abs(sliderValue - target)
@@ -34,9 +35,11 @@ struct Game {
     }
     
     mutating func startNewGame(){
-        score = 0
-        round = 1
-        target = Int.random(in: 1...100)
+        if canRestart {
+            score = 0
+            round = 1
+            target = Int.random(in: 1...100)
+        }
     }
 
 }

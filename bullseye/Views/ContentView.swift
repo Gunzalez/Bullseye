@@ -69,6 +69,7 @@ struct ButtonView: View {
     
     var body: some View {
         Button(action: {
+            game.canRestart = false
             withAnimation {
                 alertIsVisible = true
             }
