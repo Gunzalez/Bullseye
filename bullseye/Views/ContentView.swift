@@ -18,10 +18,16 @@ struct ContentView: View {
                 BackgroundView(game: $game)
                 VStack{
                     InstructionsView(game: $game)
-                        .padding(.bottom, 100)
+                        .padding(.bottom, CGFloat(alertIsVisible ? 0 : 100))
+                    if alertIsVisible {
+                        PointsView(alertIsVisible: $alertIsVisible, game: $game, sliderValue: $sliderValue)
+                    } else {
                     ButtonView(alertIsVisible: $alertIsVisible, game: $game, sliderValue: $sliderValue)
+                    }
                 }
-                SliderView(sliderValue: $sliderValue)
+                if !alertIsVisible {
+                    SliderView(sliderValue: $sliderValue)
+                }
             }
         }
     }
@@ -78,18 +84,18 @@ struct ButtonView: View {
                         .stroke(Color(.white), lineWidth: 4)
                 )
         }
-        .alert(isPresented: $alertIsVisible, content: {
-            
-            let roundedValue: Int = Int(sliderValue.rounded())
-            let points = game.points(sliderValue: roundedValue)
-            
-            return Alert(title: Text("Bullseye!"),
-                         message: Text("Your slider is at \(roundedValue).\n You score \(points) points this round."),
-                         dismissButton: .default(Text("Awesome!")){
-                            game.startNewRound(points: points)
-                            
-                         })
-        })
+//        .alert(isPresented: $alertIsVisible, content: {
+//
+//            let roundedValue: Int = Int(sliderValue.rounded())
+//            let points = game.points(sliderValue: roundedValue)
+//
+//            return Alert(title: Text("Bullseye!"),
+//                         message: Text("Your slider is at \(roundedValue).\n You score \(points) points this round."),
+//                         dismissButton: .default(Text("Awesome!")){
+//                            game.startNewRound(points: points)
+//
+//                         })
+//        })
     }
 }
 
