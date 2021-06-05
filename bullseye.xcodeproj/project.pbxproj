@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F1A4DDF266A3F89006CB496 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A4DDE266A3F89006CB496 /* RowView.swift */; };
+		6F1A4DE1266AD521006CB496 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A4DE0266AD521006CB496 /* LeaderboardView.swift */; };
 		6F9B77BC265B374E0096F930 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B77BB265B374E0096F930 /* Game.swift */; };
 		6F9B77C4265C52E40096F930 /* BullseyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B77C3265C52E40096F930 /* BullseyeTests.swift */; };
 		6F9B77CC266367080096F930 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B77CB266367080096F930 /* TextViews.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F1A4DDE266A3F89006CB496 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		6F1A4DE0266AD521006CB496 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		6F9B77BB265B374E0096F930 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		6F9B77C1265C52E40096F930 /* BullseyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BullseyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9B77C3265C52E40096F930 /* BullseyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullseyeTests.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 				6F9B77CF26640CEB0096F930 /* RoundedView.swift */,
 				6F9B77D32666E6300096F930 /* PointsView.swift */,
 				6F9B77D52668FC0F0096F930 /* Shapes.swift */,
+				6F1A4DDE266A3F89006CB496 /* RowView.swift */,
+				6F1A4DE0266AD521006CB496 /* LeaderboardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,10 +270,12 @@
 				6F9B77CC266367080096F930 /* TextViews.swift in Sources */,
 				6F9B77D62668FC0F0096F930 /* Shapes.swift in Sources */,
 				6F9B77BC265B374E0096F930 /* Game.swift in Sources */,
+				6F1A4DE1266AD521006CB496 /* LeaderboardView.swift in Sources */,
 				6F9B77D42666E6300096F930 /* PointsView.swift in Sources */,
 				6F9B77D826690AD90096F930 /* Constants.swift in Sources */,
 				6F9B77D22664D5190096F930 /* BackgroundView.swift in Sources */,
 				6F9B77D026640CEB0096F930 /* RoundedView.swift in Sources */,
+				6F1A4DDF266A3F89006CB496 /* RowView.swift in Sources */,
 				6FCC78E7265AB9A000EB0A2B /* SceneDelegate.swift in Sources */,
 				6FCC78E9265AB9A000EB0A2B /* ContentView.swift in Sources */,
 			);

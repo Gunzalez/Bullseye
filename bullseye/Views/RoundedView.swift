@@ -45,10 +45,25 @@ struct RoundedRectTextView: View {
             .kerning(-0.2)
             .frame(width: Constants.General.roundedRectWidth, height: Constants.General.roundedRectHeight)
             .overlay(RoundedRectangle(cornerRadius: Constants.General.roundedCornerRadius)
-                        .strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth)
+                        .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth)
             )
     }
 }
+
+struct RoundedTextView: View {
+    var index: Int
+    
+    var body: some View {
+        Text(String(index))
+            .foregroundColor(Color("TextColor"))
+            .font(.title)
+            .frame(width: Constants.General.roundedViewLength, height: Constants.General.roundedViewLength)
+            .overlay(Circle()
+                        .strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth))
+    }
+}
+
+
 
 
 
@@ -58,6 +73,7 @@ struct PreviewView: View {
             RoundedImageViewStroked(systemName: "arrow.counterclockwise")
             RoundedImageViewFilled(systemName: "list.dash")
             RoundedRectTextView(text: "9")
+            RoundedTextView(index: 1)
         }
     }
 }

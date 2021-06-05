@@ -41,10 +41,10 @@ struct InstructionsView: View {
     
     var body: some View {
         VStack{
-        InstructionText(text: "🎯🎯🎯\nPut the bullseye as close as you can to")
-            .padding(.leading, 30.0)
-            .padding(.trailing, 30.0)
-        BigNumberText(text: String(game.target))
+            InstructionText(text: "🎯🎯🎯\nPut the bullseye as close as you can to")
+                .padding(.leading, 30.0)
+                .padding(.trailing, 30.0)
+            BigNumberText(text: String(game.target))
         }
     }
 }
@@ -90,18 +90,18 @@ struct ButtonView: View {
                         .stroke(Color(.white), lineWidth: Constants.General.strokeWidth)
                 )
         }
-//        .alert(isPresented: $alertIsVisible, content: {
-//
-//            let roundedValue: Int = Int(sliderValue.rounded())
-//            let points = game.points(sliderValue: roundedValue)
-//
-//            return Alert(title: Text("Bullseye!"),
-//                         message: Text("Your slider is at \(roundedValue).\n You score \(points) points this round."),
-//                         dismissButton: .default(Text("Awesome!")){
-//                            game.startNewRound(points: points)
-//
-//                         })
-//        })
+        //        .alert(isPresented: $alertIsVisible, content: {
+        //
+        //            let roundedValue: Int = Int(sliderValue.rounded())
+        //            let points = game.points(sliderValue: roundedValue)
+        //
+        //            return Alert(title: Text("Bullseye!"),
+        //                         message: Text("Your slider is at \(roundedValue).\n You score \(points) points this round."),
+        //                         dismissButton: .default(Text("Awesome!")){
+        //                            game.startNewRound(points: points)
+        //
+        //                         })
+        //        })
     }
 }
 
