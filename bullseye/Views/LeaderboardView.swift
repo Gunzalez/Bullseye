@@ -9,11 +9,20 @@ import SwiftUI
 
 struct LeaderboardView: View {
     var body: some View {
-        SingleRowView(index: 1, score: 10, date: Date())
+        ZStack {
+            Color("Background")
+                .edgesIgnoringSafeArea(.all)
+            VStack{
+                HeaderView()
+                LabelView()
+                    .padding(.bottom, 2)
+                RowView(index: 1, score: 10, date: Date())
+            }
+        }
     }
 }
 
-struct SingleRowView: View {
+struct RowView: View {
     
     let index: Int
     let score: Int
@@ -30,7 +39,38 @@ struct SingleRowView: View {
                 .frame(width: Constants.Leaderboard.leaderboardDateColWidth)
         }
         .background(RoundedRectangle(cornerRadius: .infinity)
-            .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth))
+                        .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth))
+        .padding(.leading)
+        .padding(.trailing)
+        .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)
+    }
+}
+
+struct HeaderView: View {
+    var body: some View {
+        ZStack {
+            BigBoldText(text: "Leaderboard")
+            HStack{
+                Spacer()
+                RoundedImageViewFilled(systemName: "xmark")
+                    .padding(.trailing)
+            }
+        }
+    }
+}
+
+struct LabelView: View {
+    var body: some View {
+        HStack {
+            Spacer()
+                .frame(width: Constants.General.roundedViewLength)
+            Spacer()
+            LabelText(text: "Score")
+                .frame(width: Constants.Leaderboard.leaderboardScoreColWidth)
+            Spacer()
+            LabelText(text: "Date")
+                .frame(width: Constants.Leaderboard.leaderboardDateColWidth)
+        }
         .padding(.leading)
         .padding(.trailing)
         .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)

@@ -29,8 +29,8 @@ struct RoundedImageViewFilled: View {
             .foregroundColor(Color("ButtonFilledTextColor"))
             .frame(width: Constants.General.roundedViewLength, height: Constants.General.roundedViewLength)
             .background(Circle()
-                 .fill(Color("ButtonFilledBackgroundColor")))
-            
+                            .fill(Color("ButtonFilledBackgroundColor")))
+        
     }
 }
 
@@ -62,9 +62,6 @@ struct RoundedTextView: View {
                         .strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth))
     }
 }
-
-
-
 
 
 struct PreviewView: View {
