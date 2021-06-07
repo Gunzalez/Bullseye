@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct LeaderboardView: View {
+    
+    @Binding var isLeaderboardShowing: Bool
+    
     var body: some View {
         ZStack {
             Color("Background")
                 .edgesIgnoringSafeArea(.all)
             VStack{
-                HeaderView()
+                HeaderView(isLeaderboardShowing: $isLeaderboardShowing)
                 LabelView()
                     .padding(.bottom, 2)
                 RowView(index: 1, score: 10, date: Date())
@@ -50,6 +53,8 @@ struct HeaderView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
+    @Binding var isLeaderboardShowing: Bool
+    
     var body: some View {
         ZStack {
             HStack {
@@ -63,8 +68,12 @@ struct HeaderView: View {
             }
             HStack{
                 Spacer()
-                RoundedImageViewFilled(systemName: "xmark")
-                    .padding(.trailing)
+                Button(action: {
+                    isLeaderboardShowing = false
+                }) {
+                    RoundedImageViewFilled(systemName: "xmark")
+                        .padding(.trailing)
+                }
             }
         }
     }
@@ -90,13 +99,16 @@ struct LabelView: View {
 
 
 struct LeaderboardView_Previews: PreviewProvider {
+    
+    static var isLeaderboardShowing = Binding.constant(false)
+    
     static var previews: some View {
-        LeaderboardView()
-        LeaderboardView()
+        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing)
+        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing)
             .preferredColorScheme(.dark)
-        LeaderboardView()
+        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing)
             .previewLayout(.fixed(width: 568, height: 320))
-        LeaderboardView()
+        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing)
             .previewLayout(.fixed(width: 568, height: 320))
             .preferredColorScheme(.dark)
     }
