@@ -45,7 +45,7 @@ struct RoundedRectTextView: View {
             .kerning(-0.2)
             .frame(width: Constants.General.roundedRectWidth, height: Constants.General.roundedRectHeight)
             .overlay(RoundedRectangle(cornerRadius: Constants.General.roundedCornerRadius)
-                        .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth)
+                        .strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth)
             )
     }
 }
@@ -59,7 +59,7 @@ struct RoundedTextView: View {
             .font(.title)
             .frame(width: Constants.General.roundedViewLength, height: Constants.General.roundedViewLength)
             .overlay(Circle()
-                        .strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth))
+                        .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth))
     }
 }
 
