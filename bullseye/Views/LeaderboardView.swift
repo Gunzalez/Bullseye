@@ -10,6 +10,7 @@ import SwiftUI
 struct LeaderboardView: View {
     
     @Binding var isLeaderboardShowing: Bool
+    @Binding var game: Game
     
     var body: some View {
         ZStack {
@@ -17,9 +18,16 @@ struct LeaderboardView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack{
                 HeaderView(isLeaderboardShowing: $isLeaderboardShowing)
+                    .padding(.top)
                 LabelView()
-                    .padding(.bottom, 2)
-                RowView(index: 1, score: 10, date: Date())
+                ScrollView {
+                    VStack{
+                        ForEach(game.leaderboardEntries.indices) { i in
+                            let leaderboardEntry = game.leaderboardEntries[i]
+                            RowView(index: i+1, score: leaderboardEntry.score, date: leaderboardEntry.date)
+                        }
+                    }
+                }
             }
         }
     }
@@ -33,18 +41,19 @@ struct RowView: View {
     
     var body: some View {
         HStack{
-            RoundedTextView(index: 1)
+            RoundedTextView(index: index)
             Spacer()
-            ScoreText(score: 500)
+            ScoreText(score: score)
                 .frame(width: Constants.Leaderboard.leaderboardScoreColWidth)
             Spacer()
-            DateText(date: Date())
+            DateText(date: date)
                 .frame(width: Constants.Leaderboard.leaderboardDateColWidth)
         }
         .background(RoundedRectangle(cornerRadius: .infinity)
                         .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth))
         .padding(.leading)
         .padding(.trailing)
+        .padding(.bottom, 2)
         .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)
     }
 }
@@ -59,9 +68,9 @@ struct HeaderView: View {
         ZStack {
             HStack {
                 if(verticalSizeClass == .regular && horizontalSizeClass == .compact){
-                BigBoldText(text: "Leaderboard")
-                    .padding(.leading)
-                 Spacer()
+                    BigBoldText(text: "Leaderboard")
+                        .padding(.leading)
+                    Spacer()
                 } else {
                     BigBoldText(text: "Leaderboard")
                 }
@@ -93,6 +102,7 @@ struct LabelView: View {
         }
         .padding(.leading)
         .padding(.trailing)
+        .padding(.bottom, 2)
         .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)
     }
 }
@@ -101,14 +111,15 @@ struct LabelView: View {
 struct LeaderboardView_Previews: PreviewProvider {
     
     static var isLeaderboardShowing = Binding.constant(false)
+    static var game = Binding.constant(Game())
     
     static var previews: some View {
-        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing)
-        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing)
+        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing, game: game)
+        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing, game: game)
             .preferredColorScheme(.dark)
-        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing)
+        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing, game: game)
             .previewLayout(.fixed(width: 568, height: 320))
-        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing)
+        LeaderboardView(isLeaderboardShowing: isLeaderboardShowing, game: game)
             .previewLayout(.fixed(width: 568, height: 320))
             .preferredColorScheme(.dark)
     }
