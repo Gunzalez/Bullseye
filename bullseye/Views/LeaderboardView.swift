@@ -111,7 +111,7 @@ struct LabelView: View {
 struct LeaderboardView_Previews: PreviewProvider {
     
     static var isLeaderboardShowing = Binding.constant(false)
-    static var game = Binding.constant(Game())
+    static var game = Binding.constant(Game(loadTestData: true))
     
     static var previews: some View {
         LeaderboardView(isLeaderboardShowing: isLeaderboardShowing, game: game)

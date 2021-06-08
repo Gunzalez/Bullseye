@@ -19,6 +19,18 @@ struct Game {
     var canRestart = true
     var leaderboardEntries: [LeaderboardEntry] = [];
     
+    init(loadTestData: Bool = false) {
+        if loadTestData {
+            leaderboardEntries.append(LeaderboardEntry(score: 100, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 27, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 40, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 210, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 119, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 94, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 290, date: Date()))
+        }
+    }
+    
     func points(sliderValue: Int) -> Int {
         let diff = abs(sliderValue - target)
         let points = 100 - diff
